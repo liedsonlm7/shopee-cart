@@ -13,7 +13,11 @@ async function calculateTotal(userCart) {
 
 // delete item from cart
 async function deleteItem(userCart, name) {
+    const index = userCart.findIndex((item) => item.name === name)
 
+    if (index != -1) {
+        userCart.splice(index, 1)
+    }
 }
 
 // remove item - decrease an item
