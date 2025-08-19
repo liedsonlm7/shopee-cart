@@ -1,8 +1,14 @@
 // use cases for the cart
 
 // add item 
-async function addItem(userCart) {
-    
+async function addItem(userCart, item) {
+    userCart.push(item)
+}
+
+// calculate total
+async function calculateTotal(userCart) {
+    const result = userCart.reduce((total, item) => total + item.subtotal(), 0)
+    console.log(`R$ ${result}`)
 }
 
 // delete item from cart
@@ -15,7 +21,10 @@ async function removeItem(userCart, index) {
 
 }
 
-// calculate total
-async function calculateTotal(userCart) {
 
+export {
+    addItem,
+    calculateTotal,
+    deleteItem,
+    removeItem
 }
